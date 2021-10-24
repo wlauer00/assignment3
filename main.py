@@ -1,8 +1,7 @@
 import sys
 
 def main():
-  print(str(sys.argv[0]))
-  with open(sys.argv[0], 'r') as f:
+  with open(sys.argv[1], 'r') as f:
     contents = f.readlines()
   parsePlans(contents)
 
@@ -11,15 +10,17 @@ def parsePlans(plans):
   floors = {}
   reached_complex = 0
   for line in plans:
+    # print(floors)
     if reached_complex == 0:
       plan = line.split(' ')
       if plan[0] == 'floor':
         # append to the floor dict the name of the floor along with the returned square footage from parseFloor
         floors = parseFloor(plan, floors)
-      if plan[0] == 'complex':
+      elif plan[0] == 'complex\n':
         reached_complex = 1
-    else:
+    elif reached_complex == 1:
       complex_plans.append(line)
+
   parseComplex(complex_plans, floors)
 
 # Get and return the square footage of the floor and name
@@ -30,21 +31,22 @@ def parseFloor(plan, floors):
     roomText += plan[i]
   rooms = roomText.split(',')
   area = parseRoom(rooms)
-  floors[name].append(area)
+  floors[name] = area
   return floors
 
 # Get the floor names, then check the dictionary for them and, assuming they exist, add square footage and print the total square footage for each building
 def parseComplex(plan, floors_dict):
   list_of_sq_ft = []
   for line in plan:
+    line = line.split(' ')
     floor_names = []
-    building_name = line[1]
-    if line[3]=='floor':
-      floor_names.append(line[5])
-    elif line[3]=='floors':
-      rest_of_names = line[4:]
+    building_name = line[3]
+    if line[5]=='floor':
+      floor_names.append(line[7])
+    elif line[5]=='floors':
+      rest_of_names = line[6:]
       for name in rest_of_names:
-        if name=='{' or name=='}' or name==',':
+        if name=='{' or name=='}' or name==',' or name=='}\n':
           continue
         floor_names.append(name)
     else:
