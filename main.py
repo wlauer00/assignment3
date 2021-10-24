@@ -1,5 +1,7 @@
 import sys
 
+# Authors: William Lauer & Jayden Shaw
+
 def main():
   with open(sys.argv[1], 'r') as f:
     contents = f.readlines()
@@ -10,7 +12,6 @@ def parsePlans(plans):
   floors = {}
   reached_complex = 0
   for line in plans:
-    # print(floors)
     if reached_complex == 0:
       plan = line.split(' ')
       if plan[0] == 'floor':

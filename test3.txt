@@ -1,0 +1,18 @@
+floor DINING has rooms [ 80 by 40 ]
+floor CUBICALS has rooms [  20 by 20 , 20 by 20 ]
+floor GRAND_OFFICE has rooms [ 15 by 15 , 30 by 30 ]
+floor GAMER_PARADISE has rooms [ 150 by 150 , 300 by 300 ]
+floor BATHROOM has rooms [ 2 by 20 ]
+floor DETENSION has rooms [ 15 by 15 , 15 by 15 , 15 by 15 , 15 by 15 , 15 by 15 , 15 by 15 ]
+floor LOUNGE has rooms [ 1 by 1 , 30 by 30 ]
+floor CIRCLE has rooms [ 34 by 34 ]
+floor SERVER_ROOM has rooms [ 35 by 49 ]
+complex
+  building WORK with floors { DINING , CUBICALS }
+  building OFFICE with floors { DINING , GRAND_OFFICE , BATHROOM }
+  building FOOD with floor { DINING }
+  building GAMEZ with floor { DINING , GAMER_PARADISE , BATHROOM }
+  building LAZY with floor { DINING , LOUNGE , LOUNGE , LOUNGE }
+  building BAD with floor { DINING , DETENSION }
+  building SQUARE-CIRCLE with floor { DINING , CIRCLE }
+  building AMAZON with floor { SERVER_ROOM , SERVER_ROOM , SERVER_ROOM , SERVER_ROOM }

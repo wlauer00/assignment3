@@ -1,0 +1,7 @@
+floorDINING has rooms [ 80 by 40 , 10 by 20 , 10 by 20 ]
+floor CUBICALS has rooms [ 20 by 20 , 20 by 20 , 20 by 20 , 20 by 20 ]
+floor GRAND_OFFICE has rooms [ 40 by 30 , 20 by 20 , 15 by 15 , 30 by 30 ]
+complex
+  building A with floors { DINING , CUBICALS , CUBICALS , GAMER_PARADISE }
+  building B with floors { DINING , GRAND_OFFICE }
+  building C with floor { DINING }
